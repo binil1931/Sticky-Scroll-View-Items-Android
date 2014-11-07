@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="#ffffff">
+
+    <com.emilsjolander.components.StickyScrollViewItems.StickyScrollView
+        xmlns:whatever="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        whatever:stuckShadowDrawable="@drawable/sticky_shadow_default" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical" >
+
+            <View
+                android:id="@+id/drag"
+                android:layout_width="fill_parent"
+                android:layout_height="196dp"
+                android:background="#ffff0000" />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="100dip"
+                android:tag="sticky-nonconstant-hastransparancy" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1" 
+                    android:background="#666666">
+
+                    <TextView
+                        android:id="@+id/mybutton"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight=".5"
+                        android:gravity="center_vertical"
+                        android:textSize="25dp"
+                        android:textColor="#ffffff"
+                        android:paddingLeft="20dp"
+                        android:text="hello world" />
+
+                    <ImageView
+                        android:id="@+id/mybuttonNote"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight=".25"
+                        android:paddingTop="20dp"
+                        android:onClick="note"
+                        android:clickable="true"
+                        android:src="@drawable/book_with_arrow" />
+
+                    <ImageView
+                        android:id="@+id/mybuttonPerson"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight=".25"
+                        android:paddingTop="20dp"
+                        android:onClick="person"
+                        android:clickable="true"
+                        android:src="@drawable/man_vector_active" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_note"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/item_name_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Huur Fiets"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/type_name_txt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:text="Mobiliteit" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="timePicker"
+                    android:orientation="horizontal"
+                    android:weightSum="1" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight=".5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/arrivert_txt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Arriveert" />
+
+                        <TextView
+                            android:id="@+id/arrivert__time_txt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="-"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="#c0c0c0" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/verterkt_txt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Vertrekt" />
+
+                        <TextView
+                            android:id="@+id/verterkt__time_txt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="-"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:id="@+id/layout_detail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight=".5"
+                        android:gravity="center_vertical"
+                        android:text="Details" />
+
+                    <TextView
+                        android:id="@+id/detail_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight=".5"
+                        android:gravity="center_vertical"
+                        android:text="detail_txt" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:id="@+id/layout_faciliteiten"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/faciliteiten"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight=".5"
+                        android:gravity="center_vertical"
+                        android:text="Faciliteiten" />
+
+                    <TextView
+                        android:id="@+id/faciliteiten_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight=".5"
+                        android:gravity="center_vertical"
+                        android:text="faciliteiten_txt" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/resever"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight=".51"
+                        android:gravity="center_vertical"
+                        android:text="Reserveringskosten" />
+
+                    <TextView
+                        android:id="@+id/resever_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="0.5"
+                        android:gravity="center_vertical"
+                        android:text="resever_txt" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <!--
+            <fragment
+            android:id="@+id/map_note"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="450dp" />
+                -->
+
+
+                <!--
+           <WebView
+            android:id="@+id/map_note_WebView"
+            android:layout_width="fill_parent"
+            android:layout_height="450dp"
+            android:layout_below="@+id/relativeLayout1" />
+                -->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_image_person"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/title_person"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="title"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/place_txt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:text="title_txt" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight=".5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/beoordeling"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Beoordeling" />
+
+                        <TextView
+                            android:id="@+id/beoordeling_txt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="nb/10"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="#c0c0c0" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/reactiesnelheid"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Reactiesnelheid" />
+
+                        <TextView
+                            android:id="@+id/reactiesnelheid_txt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="nb%"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:id="@+id/layout_detail_two"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/over_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center_vertical"
+                        android:text="over_txt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/deze_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center_vertical"
+                        android:text="deze_txt" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#c0c0c0" >
+
+                    <ImageView
+                        android:id="@+id/person_image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:id="@+id/textView_recenties"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/person_image"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="20dp"
+                        android:text="1337 Recenties"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.emilsjolander.components.StickyScrollViewItems.StickyScrollView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Button" />
+
+</RelativeLayout>
